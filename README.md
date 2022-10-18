@@ -38,3 +38,7 @@ I used `openweathermap` weather API to get the weather data along with the geoco
 I learned about google' APIs and how we can render the maps on our web application.\
 
 Also, it was my first time converting a React page to a PDF. Now I kinda understand how can we generate receipts for our users.
+
+## Application preview
+
+![alt text](https://github.com/turjumann/react-task/blob/main/src/Assets/Before.png?raw=true)
