@@ -4,8 +4,6 @@ import calandar from "../../Assets/calandar.jpg";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 // document.documentElement.dir = "rtl";
-console.log("documentElement: ", document.documentElement.dir);
-console.log("getElementById", document.getElementById("printable")?.dir);
 const ArabicPDF = (props) => {
   const createItems = () => {
     const items = [];
@@ -101,7 +99,6 @@ const ArabicPDF = (props) => {
                   <th className="css-fix">السعر الإجمالي شامل الضريبة</th>
                 </tr>
                 {createItems().map((data, index) => {
-                  console.log(index);
                   return (
                     <tr key={index}>
                       <td>{data.no}</td>
@@ -249,6 +246,34 @@ const ArabicPDF = (props) => {
               </a>
             </h2>
           </div>
+          {props.city.name && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+                margin: 8,
+                width: "100%",
+              }}
+            >
+              <p>
+                <strong>المنطقة: </strong>
+                {props.city.name}
+              </p>
+              <p>
+                <strong>البلد: </strong>
+                {props.city.country}
+              </p>
+              <p>
+                <strong>الرمزالجغرافي: </strong>
+                {props.city.lat}, {props.city.lng}
+              </p>
+              <p>
+                <strong>الحرارة: </strong>
+                {props.city.temp} مئوية
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </>

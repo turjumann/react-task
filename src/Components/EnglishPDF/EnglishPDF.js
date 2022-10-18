@@ -96,7 +96,6 @@ const EnglishPDF = (props) => {
                   <th className="css-fix">Total Including VAT</th>
                 </tr>
                 {createItems().map((data, index) => {
-                  console.log(index);
                   return (
                     <tr key={index}>
                       <td>{data.no}</td>
@@ -244,6 +243,34 @@ const EnglishPDF = (props) => {
               </a>
             </h2>
           </div>
+          {props.city.name && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+                margin: 8,
+                width: "100%",
+              }}
+            >
+              <p>
+                <strong>Name: </strong>
+                {props.city.name}
+              </p>
+              <p>
+                <strong>Country: </strong>
+                {props.city.country}
+              </p>
+              <p>
+                <strong>Coordinates: </strong>
+                {props.city.lat}, {props.city.lng}
+              </p>
+              <p>
+                <strong>Temperature: </strong>
+                {props.city.temp} Celsius
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </>

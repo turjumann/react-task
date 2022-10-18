@@ -3,6 +3,7 @@ import jsPDF from "jspdf";
 import { useState } from "react";
 import EnglishPDF from "./Components/EnglishPDF/EnglishPDF";
 import ArabicPDF from "./Components/ArabicPDF/ArabicPDF";
+import Maps from "./Components/Maps/Maps";
 
 // <button onClick={() => window.print()}>PRINT</button>
 // document.documentElement.dir = "rtl";
@@ -16,26 +17,30 @@ import ArabicPDF from "./Components/ArabicPDF/ArabicPDF";
 // Render/Generate both of them.
 
 function App() {
+  const [city, setCity] = useState({});
   const exportPDF = async () => {
-    const arabicInput = document.getElementById("arabic");
-    const englishInput = document.getElementById("english");
+    try {
+      const arabicInput = document.getElementById("arabic");
+      const englishInput = document.getElementById("english");
 
-    const arabicH2C = await html2canvas(arabicInput);
-    const arImgData = arabicH2C.toDataURL("image/png");
-    const arPdf = new jsPDF("p", "px", "a4", true);
-    var arWidth = arPdf.internal.pageSize.getWidth();
-    var arHeight = arPdf.internal.pageSize.getHeight();
-    arPdf.addImage(arImgData, "JPEG", 0, 0, arWidth, arHeight);
-    arPdf.save("ArabicPDF.pdf");
+      const arabicH2C = await html2canvas(arabicInput);
+      const arImgData = arabicH2C.toDataURL("image/png");
+      const arPdf = new jsPDF("p", "px", "a4", true);
+      var arWidth = arPdf.internal.pageSize.getWidth();
+      var arHeight = arPdf.internal.pageSize.getHeight();
+      arPdf.addImage(arImgData, "JPEG", 0, 0, arWidth, arHeight);
+      arPdf.save("ArabicPDF.pdf");
 
-    const englishH2C = await html2canvas(englishInput);
-    const enImgData = englishH2C.toDataURL("image/png");
-    const enPdf = new jsPDF("p", "px", "a4", true);
-    var enWidth = enPdf.internal.pageSize.getWidth();
-    var enHeight = enPdf.internal.pageSize.getHeight();
-    enPdf.addImage(enImgData, "JPEG", 0, 0, enWidth, enHeight);
-    enPdf.save("EnglishPDF.pdf");
-
+      const englishH2C = await html2canvas(englishInput);
+      const enImgData = englishH2C.toDataURL("image/png");
+      const enPdf = new jsPDF("p", "px", "a4", true);
+      var enWidth = enPdf.internal.pageSize.getWidth();
+      var enHeight = enPdf.internal.pageSize.getHeight();
+      enPdf.addImage(enImgData, "JPEG", 0, 0, enWidth, enHeight);
+      enPdf.save("EnglishPDF.pdf");
+    } catch (err) {
+      console.log(err);
+    }
     // html2canvas(arabicInput).then((canvas) => {
     //   const imgData = canvas.toDataURL("image/png");
     //   const pdf = new jsPDF("p", "px", "a4", true);
@@ -46,14 +51,18 @@ function App() {
     //   pdf.save("test.pdf");
     // });
   };
+
+  //style={{height: "0px", overflowY: "scroll"}}
   return (
     <>
-      <div style={{ height: "0px", overflowY: "scroll" }}>
-        <ArabicPDF />
-        <EnglishPDF />
+      <div style={{ height: "100%", width: "100%" }}>
+        <Maps setCity={setCity} />
+        <button onClick={() => exportPDF()}>Generate PDFs</button>
+        <div style={{ height: "0px", overflowY: "scroll" }}>
+          <ArabicPDF city={city} />
+          <EnglishPDF city={city} />
+        </div>
       </div>
-
-      <button onClick={() => exportPDF()}>Generate</button>
     </>
   );
 }
