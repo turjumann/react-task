@@ -1,8 +1,11 @@
 import React from "react";
-import "./pdfStyles.css";
 import calandar from "../../Assets/calandar.jpg";
+import { useSelector } from "react-redux";
+import "./pdfStyles.css";
 
-const EnglishPDF = (props) => {
+const EnglishPDF = () => {
+  const { cityInfo } = useSelector((state) => state.app);
+
   const createItems = () => {
     const items = [];
     for (let i = 1; i <= 6; i++) {
@@ -241,7 +244,7 @@ const EnglishPDF = (props) => {
               </a>
             </h2>
           </div>
-          {props.city.name && (
+          {cityInfo.temp !== "NaN" && (
             <div
               style={{
                 display: "flex",
@@ -252,20 +255,20 @@ const EnglishPDF = (props) => {
               }}
             >
               <p>
-                <strong>Name: </strong>
-                {props.city.name}
+                <strong>Country: </strong>
+                {cityInfo.country}
               </p>
               <p>
-                <strong>Country: </strong>
-                {props.city.country}
+                <strong>City: </strong>
+                {cityInfo.city}
               </p>
               <p>
                 <strong>Coordinates: </strong>
-                {props.city.lat}, {props.city.lng}
+                {cityInfo.lat}, {cityInfo.lng}
               </p>
               <p>
                 <strong>Temperature: </strong>
-                {props.city.temp} Celsius
+                {cityInfo.temp} Celsius
               </p>
             </div>
           )}

@@ -1,8 +1,11 @@
 import React from "react";
-import "./pdfStyles.css";
 import calandar from "../../Assets/calandar.jpg";
-// document.documentElement.dir = "rtl";
+import { useSelector } from "react-redux";
+import "./pdfStyles.css";
+
 const ArabicPDF = (props) => {
+  const { cityInfo } = useSelector((state) => state.app);
+
   const createItems = () => {
     const items = [];
     for (let i = 1; i <= 6; i++) {
@@ -244,7 +247,7 @@ const ArabicPDF = (props) => {
               </a>
             </h2>
           </div>
-          {props.city.name && (
+          {cityInfo.temp !== "NaN" && (
             <div
               style={{
                 display: "flex",
@@ -255,20 +258,20 @@ const ArabicPDF = (props) => {
               }}
             >
               <p>
-                <strong>المنطقة: </strong>
-                {props.city.name}
+                <strong>البلد: </strong>
+                {cityInfo.country}
               </p>
               <p>
-                <strong>البلد: </strong>
-                {props.city.country}
+                <strong>المنطقة: </strong>
+                {cityInfo.city}
               </p>
               <p>
                 <strong>الرمزالجغرافي: </strong>
-                {props.city.lat}, {props.city.lng}
+                {cityInfo.lat}, {cityInfo.lng}
               </p>
               <p>
                 <strong>الحرارة: </strong>
-                {props.city.temp} مئوية
+                {cityInfo.temp} مئوية
               </p>
             </div>
           )}
