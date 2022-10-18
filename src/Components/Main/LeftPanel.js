@@ -10,7 +10,7 @@ const LeftPanel = () => {
       <div className="search-container">
         <div>
           <div>
-            <input className="input" placeholder="Search place..." />
+            <input className="input" placeholder="Search places..." />
             <button className="btn button">Search</button>
           </div>
           <div>

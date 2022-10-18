@@ -89,7 +89,11 @@ const Maps = (props) => {
             }}
             center={{ lat: cityInfo.lat, lng: cityInfo.lng }}
             zoom={isLoading ? 6 : 7}
-            mapContainerStyle={{ height: "100%", width: "100%" }}
+            mapContainerStyle={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "25px",
+            }}
           >
             <MarkerF position={{ lat: cityInfo.lat, lng: cityInfo.lng }} />
           </GoogleMap>
