@@ -4,6 +4,8 @@ In this task, I created a new react application that has 2 main parts. I used so
 
 ## Part 1
 
+On the homepage, I used Google's API to render Google Maps on the screen. I also created an input field where the user can type and search for a city which then will show the user the weather temperature in that corresponding city.
+
 ## Part 2
 
 I created 2 components which displays 2 versions of a PDF, English and Arabic versions. The PDFs content are sample data. The PDFs are hidden from the user, but the user can see a "Generate PDF" button which will allow him to generate 2 different PDFs and download them.
@@ -18,5 +20,7 @@ I used 2 different libraries that helped me generate a PDF version of my compone
 My first attempt to generate the PDF without compressing it, outputted 70MB for a single PDF file. After the compress, it was 500KB.
 
 ## What did I learn?
+
+I learned about google' APIs and how we can render the maps on our web application.
 
 Also, it was my first time converting a React page to a PDF. Now I kinda understand how can we generate receipts for our users.
