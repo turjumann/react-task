@@ -27,7 +27,7 @@ I used `openweathermap` weather API to get the weather data along with the geoco
 
 `@reduxjs/toolkit`
 `react-redux`
-`redux`: Redux was used to manage the states and city information.
+`redux`: Redux was used to manage the states and city information.\
 `@react-google-maps/api`: This lib was used to connect to Google's API & render the Maps.
 `dotenv`: Dotenv was used to create a local .env and hide secret APIs.
 `html2canvas`: This lib was used to convert a DOM element to an Image.
