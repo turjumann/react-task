@@ -1,7 +1,5 @@
 # ReactJs Task
 
-In this task, I created a new react application that has 2 main parts. I used some external libraries to achieve some certain tasks.
-
 ## Part 1
 
 I used Google's API to render Google Maps on the screen. I also created an input field where the user can type and search for a city which will then show the user the weather temperature and other data for the corresponding city.
@@ -40,5 +38,3 @@ I used `openweathermap` weather API to get the weather data along with the geoco
 I learned about google' APIs and how we can render the maps on our web application.
 
 Also, it was my first time converting a React page to a PDF. Now I kinda understand how can we generate receipts for our users.
-
-## Design (Before & After)
