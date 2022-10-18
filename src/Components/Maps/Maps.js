@@ -26,7 +26,6 @@ const Maps = () => {
               fullscreenControl: false,
               keyboardShortcuts: false,
               disableDoubleClickZoom: true,
-              scrollwheel: false,
             }}
             center={{ lat: cityInfo.lat, lng: cityInfo.lng }}
             zoom={pending ? 6 : 7}
