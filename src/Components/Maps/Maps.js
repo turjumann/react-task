@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import { useJsApiLoader, GoogleMap, MarkerF } from "@react-google-maps/api";
-
+import "./mapStyles.css";
 const Maps = (props) => {
   const { setCity } = props;
   useEffect(() => {}, []);
@@ -60,14 +60,10 @@ const Maps = (props) => {
     }
   };
   return (
-    <div style={{ height: "100vh" }}>
-      <h1>Google Maps</h1>
-      <div style={{ height: "50vh" }}>
-        <div></div>
-        <div style={{ padding: 50, height: "100%", width: "50%" }}>
-          {isLoaded && (
-            <>
-              <div style={{ display: "flex", alignItems: "center" }}>
+    <>
+      {isLoaded && (
+        <div className="map-container">
+          {/* <div style={{ display: "flex", alignItems: "center" }}>
                 <input
                   type="text"
                   placeholder="City"
@@ -79,29 +75,27 @@ const Maps = (props) => {
                   Search
                 </button>
                 {isLoading && <p>Loading...</p>}
-              </div>
-              <GoogleMap
-                options={{
-                  mapId: "904efaf1230f37cd",
-                  zoomControl: false,
-                  streetViewControl: false,
-                  mapTypeControl: false,
-                  fullscreenControl: false,
-                  keyboardShortcuts: false,
-                  disableDoubleClickZoom: true,
-                  scrollwheel: false,
-                }}
-                center={{ lat: cityInfo.lat, lng: cityInfo.lng }}
-                zoom={isLoading ? 6 : 7}
-                mapContainerStyle={{ width: "100%", height: "100%" }}
-              >
-                <MarkerF position={{ lat: cityInfo.lat, lng: cityInfo.lng }} />
-              </GoogleMap>
-            </>
-          )}
+              </div> */}
+          <GoogleMap
+            options={{
+              mapId: "904efaf1230f37cd",
+              zoomControl: false,
+              streetViewControl: false,
+              mapTypeControl: false,
+              fullscreenControl: false,
+              keyboardShortcuts: false,
+              disableDoubleClickZoom: true,
+              scrollwheel: false,
+            }}
+            center={{ lat: cityInfo.lat, lng: cityInfo.lng }}
+            zoom={isLoading ? 6 : 7}
+            mapContainerStyle={{ height: "100%", width: "100%" }}
+          >
+            <MarkerF position={{ lat: cityInfo.lat, lng: cityInfo.lng }} />
+          </GoogleMap>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

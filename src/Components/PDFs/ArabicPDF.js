@@ -1,8 +1,6 @@
 import React from "react";
-import "../styles.css";
+import "./pdfStyles.css";
 import calandar from "../../Assets/calandar.jpg";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 // document.documentElement.dir = "rtl";
 const ArabicPDF = (props) => {
   const createItems = () => {

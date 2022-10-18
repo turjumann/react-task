@@ -1,0 +1,7 @@
+.map-container {
+    display: flex;
+    flex: 1;
+    width: 150vh;
+    height: 95vh;
+}
+

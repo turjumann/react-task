@@ -1,10 +1,13 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useState } from "react";
-import EnglishPDF from "./Components/EnglishPDF/EnglishPDF";
-import ArabicPDF from "./Components/ArabicPDF/ArabicPDF";
+import EnglishPDF from "./Components/PDFs/EnglishPDF";
+import ArabicPDF from "./Components/PDFs/ArabicPDF";
 import Maps from "./Components/Maps/Maps";
 
+import "./App.css";
+import LeftPanel from "./Components/Main/LeftPanel";
+import MapsContainer from "./Components/Main/MapsContainer";
 // <button onClick={() => window.print()}>PRINT</button>
 // document.documentElement.dir = "rtl";
 
@@ -55,15 +58,25 @@ function App() {
   //style={{height: "0px", overflowY: "scroll"}}
   return (
     <>
-      <div style={{ height: "100%", width: "100%" }}>
-        <Maps setCity={setCity} />
-        <button onClick={() => exportPDF()}>Generate PDFs</button>
-        <div style={{ height: "0px", overflowY: "scroll" }}>
-          <ArabicPDF city={city} />
-          <EnglishPDF city={city} />
+      <div className="main-container">
+        <div className="left-panel">
+          <LeftPanel />
+        </div>
+        <div className="maps-container">
+          <MapsContainer />
         </div>
       </div>
     </>
+    // <>
+    //   <div style={{ height: "100%", width: "100%" }}>
+    //     <Maps setCity={setCity} />
+    //     <button onClick={() => exportPDF()}>Generate PDFs</button>
+    //     <div style={{ height: "0px", overflowY: "scroll" }}>
+    //       <ArabicPDF city={city} />
+    //       <EnglishPDF city={city} />
+    //     </div>
+    //   </div>
+    // </>
   );
 }
 
