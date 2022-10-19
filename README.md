@@ -31,11 +31,11 @@ I used `openweathermap` weather API to get the weather data along with the geoco
 `@react-google-maps/api`: This lib was used to connect to Google's API & render the Maps.\
 `dotenv`: Dotenv was used to create a local .env and hide secret APIs.\
 `html2canvas`: This lib was used to convert a DOM element to an Image.\
-`jspdf`: This lib was used to write an Image inside a PDF file and generate it.\
+`jspdf`: This lib was used to write an Image inside a PDF file and generate it.
 
 ## What did I learn?
 
-I learned about google' APIs and how we can render the maps on our web application.\
+I learned about google' APIs and how we can render the maps on our web application.
 
 Also, it was my first time converting a React page to a PDF. Now I kinda understand how can we generate receipts for our users.
 
