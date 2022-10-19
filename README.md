@@ -41,4 +41,4 @@ Also, it was my first time converting a React page to a PDF. Now I kinda underst
 
 ## Application preview
 
-![Final App](https://github.com/turjumann/react-task/blob/main/src/Assets/After.png?raw=true)
+![Final App](https://github.com/turjumann/react-task/blob/main/src/Assets/final.png?raw=true)
