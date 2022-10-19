@@ -5,7 +5,6 @@ import "./mapStyles.css";
 
 const Maps = () => {
   const { cityInfo, pending } = useSelector((state) => state.app);
-  useEffect(() => {}, []);
 
   const libraries = ["places"];
   const { isLoaded } = useJsApiLoader({
